@@ -1,4 +1,5 @@
 """Defines tests for the LabUnc class."""
+from __future__ import annotations
 
 from unc import LabUnc
 
