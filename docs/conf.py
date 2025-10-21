@@ -1,4 +1,4 @@
 project = "unc"
-extensions = ["sphinx.ext.autodoc", "myst_parser", "sphinx-markdown-builder"]
+extensions = ["sphinx-markdown-builder", "sphinx.ext.autodoc", "myst_parser",]
 source_suffix = [".rst", ".md"]
 html_theme = "furo"
