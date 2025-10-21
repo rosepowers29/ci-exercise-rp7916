@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import nox
 
 
@@ -6,8 +8,7 @@ def tests(session: nox.Session) -> None:
     """
     Run the unit and regular tests.
     """
-    test_deps = nox.project.dependency_groups(PROJECT, "test")
-    session.install("-e.", *test_deps)
+    session.install(".[test]")
     session.run("pytest", *session.posargs)
 
 @nox.session
@@ -19,4 +20,3 @@ def docs(session: nox.Session) -> None:
     session.install(".[docs]")
     session.chdir("docs")
     session.run("sphinx-build", "-M", "html", ".", "build")
-

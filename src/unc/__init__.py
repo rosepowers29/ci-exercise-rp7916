@@ -75,7 +75,9 @@ class LabUnc:
     def __eq__(self, other: Any) -> bool:
         """Compare two instances of the class."""
         return abs(self.n - other.n) < 0.0000001 and abs(self.s - other.s) < 0.0000001
-
+    def __hash__(self) -> int:
+        """Return same value for instances of class that compare equal."""
+        return hash((self.n, self.s))
     def __add__(self: Self, other: LabUnc) -> Self:
         """Add two instances of the class."""
         return self.__class__(self.n + other.n, self.combine(self.s, other.s))
@@ -87,20 +89,20 @@ class LabUnc:
     def __mul__(self: Self, other: LabUnc) -> Self:
         """Multiply two instances of the class."""
         c = self.n * other.n
-        δc = c * self.combine(self.s / self.n, other.s / other.n)
-        return type(self)(c, δc)
+        delta_c = c * self.combine(self.s / self.n, other.s / other.n)
+        return type(self)(c, delta_c)
 
     def __truediv__(self: Self, other: LabUnc) -> Self:
         """Divide two instances of the class."""
         c = self.n / other.n
-        δc = c * self.combine(self.s / self.n, other.s / other.n)
-        return self.__class__(c, δc)
+        delta_c = c * self.combine(self.s / self.n, other.s / other.n)
+        return self.__class__(c, delta_c)
 
     def __pow__(self: Self, power: float) -> Self:
         """Raise an instance of the class to a power."""
         c = self.n**power
-        δc = c * (power * self.s / self.n)
-        return self.__class__(c, δc)
+        delta_c = c * (power * self.s / self.n)
+        return self.__class__(c, delta_c)
 
 
 class StdUnc(LabUnc):
