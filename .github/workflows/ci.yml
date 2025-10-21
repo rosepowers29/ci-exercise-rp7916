@@ -50,6 +50,6 @@ jobs:
       - name: Start venv
         run: uv venv
       - name: Install deps
-        run: uv pip install --test
+        run: uv pip install --group test
       - name: Test package
         run: uv run pytest
