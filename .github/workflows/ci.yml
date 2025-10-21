@@ -47,6 +47,9 @@ jobs:
 
       - name: Download uv
         uses: astral-sh/setup-uv@v6
-
+      - name: Start venv
+        run: uv venv
+      - name: Install pytest
+        run: uv pip install pytest
       - name: Test package
         run: uv run pytest
