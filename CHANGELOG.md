@@ -1,7 +1,7 @@
 # Changelog
 
-### Fixes in src/unc/__init__.py
-- Added a __hash()__ method
+### Fixes in src/unc/\_\_init\_\_.py
+- Added a \_\_hash()\_\_ method
 - Removed non-unicode "delta" characters and replaced variable name with delta_c
 
 ### Fixes in tests/test_stdunc.py
