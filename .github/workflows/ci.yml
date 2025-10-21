@@ -18,6 +18,8 @@ jobs:
       - uses: pre-commit/action@v3.0.1
       - name: Download uv
         uses: astral-sh/setup-uv@v6
+      - name: Start venv
+        run: uv venv
       - name: Install pre-commit
         run: uv pip install pre-commit
       - name: Run pre-commit checks
